@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="네이버 블로그 초안 작성부터 품질 점검, 발행 준비까지 한곳에서.">
+  <title>세움 블로그 스튜디오</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="logo" viewBox="0 0 24 24"><path d="M4 16.5 12 21l8-4.5M4 12l8 4.5 8-4.5M4 7.5 12 3l8 4.5-8 4.5z"/></symbol>
+  <symbol id="pen" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l4.5-1 12-12a2.1 2.1 0 0 0-3-3l-12 12L4 20Z"/></symbol>
+  <symbol id="folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 5h5a3 3 0 0 1 3 3v12a4 4 0 0 0-3-2H4zM20 5h-5a3 3 0 0 0-3 3v12a4 4 0 0 1 3-2h5z"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l2.3 6.7L21 12l-6.7 2.3L12 21l-2.3-6.7L3 12l6.7-2.3L12 3ZM20 3v4m-2-2h4"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9m8-1v6H5V6h6"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></symbol>
+  <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 4H6a2 2 0 0 0-2 2v10"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8v.1"/></symbol>
+</svg>
+<header class="topbar">
+  <a class="brand" href="#write"><span class="brand-icon"><svg><use href="#logo"/></svg></span><span>세움 <small>블로그 스튜디오</small></span></a>
+  <span class="top-label">콘텐츠 워크스페이스</span>
+  <div class="top-end"><span class="naver-tag"><b>N</b> 네이버 블로그</span><span class="avatar" aria-label="내 작업공간">S</span></div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <p class="nav-label">작업공간</p>
+    <nav aria-label="작업공간">
+      <a href="#write" data-nav="write"><svg><use href="#pen"/></svg> 새 글 작성</a>
+      <a href="#drafts" data-nav="drafts"><svg><use href="#folder"/></svg> 초안 보관함 <span id="draft-count" class="count">0</span></a>
+      <a href="#guide" data-nav="guide"><svg><use href="#book"/></svg> 검색 노출 가이드</a>
+    </nav>
+    <div class="sidebar-note"><span class="green-dot"></span> 이 브라우저에 자동 저장</div>
+  </aside>
+  <main>
+    <section id="view-write">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="eyebrow"><span></span> BLOG WRITING STUDIO</p>
+          <h1>검색에 강한 블로그 글을<br>한 곳에서 준비하세요.</h1>
+          <p class="hero-description">키워드와 실제 경험을 바탕으로 초안을 만들고, 발행 전 검색 품질을 점검하세요.</p>
+        </div>
+        <svg class="hero-art" viewBox="0 0 420 235" fill="none" aria-hidden="true">
+          <defs>
+            <pattern id="grid" width="23" height="23" patternUnits="userSpaceOnUse"><path d="M23 0H0v23" stroke="#fff" stroke-opacity=".095"/></pattern>
+            <linearGradient id="paper" x1="160" y1="12" x2="326" y2="233" gradientUnits="userSpaceOnUse"><stop stop-color="#effff3"/><stop offset="1" stop-color="#8ed4ab"/></linearGradient>
+            <linearGradient id="tile" x1="285" y1="101" x2="375" y2="191" gradientUnits="userSpaceOnUse"><stop stop-color="#f6f9b5"/><stop offset="1" stop-color="#caee86"/></linearGradient>
+          </defs>
+          <path d="M0 0h420v235H0z" fill="url(#grid)"/>
+          <circle cx="260" cy="115" r="99" stroke="#a9edbd" stroke-opacity=".23"/>
+          <circle cx="260" cy="115" r="124" stroke="#a9edbd" stroke-opacity=".14"/>
+          <rect x="163" y="48" width="139" height="160" rx="15" transform="rotate(9 163 48)" fill="#51a47f" stroke="#9cdbb5"/>
+          <g transform="rotate(-11 227 115)">
+            <rect x="154" y="26" width="144" height="170" rx="15" fill="url(#paper)"/>
+            <rect x="172" y="46" width="55" height="12" rx="6" fill="#b7e7c6"/>
+            <path d="M174 77h89m-89 17h68" stroke="#1d5a46" stroke-width="7" stroke-linecap="round"/>
+            <path d="M174 118h106m-106 13h106m-106 13h83m-83 13h64" stroke="#4a9677" stroke-opacity=".55" stroke-width="4" stroke-linecap="round"/>
+            <rect x="172" y="170" width="33" height="9" rx="4.5" fill="#308565"/>
+            <rect x="209" y="170" width="23" height="9" rx="4.5" fill="#69b48c"/>
+          </g>
+          <g transform="rotate(9 322 153)">
+            <rect x="279" y="113" width="86" height="80" rx="17" fill="#0f3f32" opacity=".26" transform="translate(4 7)"/>
+            <rect x="279" y="113" width="86" height="80" rx="17" fill="url(#tile)"/>
+            <path d="M297 174h50m-46-7v-11h7v11m8 0v-19h7v19m8 0v-31h7v31" stroke="#26634a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <path d="M337 42v25m-12-12h24m-220 88v20m-10-10h20m231-60v10m-5-5h10" stroke="#dbf3a9" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="110" cy="97" r="3" fill="#a8e6b8"/><circle cx="379" cy="203" r="3" fill="#a8e6b8"/>
+        </svg>
+      </div>
+      <div class="work-grid">
+        <section class="card workflow">
+          <div class="steps" aria-label="작성 단계">
+            <button type="button" data-step="1"><span>1</span> 글 기획</button>
+            <svg><use href="#arrow"/></svg>
+            <button type="button" data-step="2"><span>2</span> 초안 편집</button>
+            <svg><use href="#arrow"/></svg>
+            <button type="button" data-step="3"><span>3</span> 발행 준비</button>
+          </div>
+          <section data-panel="1" class="panel">
+            <div class="section-heading"><div><p class="kicker">STEP 01</p><h2>글 기획하기</h2><p>무엇을, 누구에게 전할지 정하면 초안이 더 구체적이 됩니다.</p></div><button type="button" class="button subtle" id="example"><svg><use href="#spark"/></svg> 예시 불러오기</button></div>
+            <form id="brief">
+              <div class="field-row">
+                <label>글 주제 <em>*</em><input id="topic" required maxlength="100" placeholder="예: 성수에서 노트북 작업하기 좋은 카페"></label>
+                <label>핵심 키워드 <em>*</em><input id="keyword" required maxlength="60" placeholder="예: 성수 작업 카페"></label>
+              </div>
+              <div class="field-row">
+                <label>글 유형<select id="kind"><option value="guide">정보·가이드</option><option value="review">경험·후기</option><option value="compare">비교·선택</option><option value="faq">질문·답변</option></select></label>
+                <label>말투<select id="tone"><option value="friendly">친근하게</option><option value="plain">담백하게</option><option value="formal">정중하게</option></select></label>
+              </div>
+              <label>독자가 궁금해하는 점<input id="intent" maxlength="150" placeholder="예: 콘센트가 있고 평일에 조용한가요?"></label>
+              <label>직접 경험·확인한 정보 <em>*</em><textarea id="notes" rows="4" required maxlength="12000" placeholder="직접 겪은 상황, 확인한 수치나 출처, 도움이 된 팁을 한 줄씩 적어주세요."></textarea><small>본문 목표 4,000자 · 상황, 구체적인 과정, 결과, 독자에게 필요한 팁을 나누어 적어주세요.</small></label>
+              <div class="form-footer"><span><svg><use href="#info"/></svg> 브라우저 안에서 초안을 생성합니다.</span><button class="button primary" type="submit"><svg><use href="#spark"/></svg> 초안 생성하기 <svg class="end-arrow"><use href="#arrow"/></svg></button></div>
+            </form>
+          </section>
+          <section data-panel="2" class="panel" hidden>
+            <div class="section-heading"><div><p class="kicker">STEP 02</p><h2>초안 편집하기</h2><p>제목과 본문을 다듬고, 오른쪽에서 점검 항목을 확인하세요.</p></div><button class="button subtle" type="button" id="save"><svg><use href="#folder"/></svg> 보관하기</button></div>
+            <label>제목<input id="title" maxlength="150" placeholder="글 제목"></label>
+            <details class="suggestions"><summary>다른 제목 후보 보기</summary><div id="title-options"></div></details>
+            <div class="editor">
+              <div class="editor-bar"><label for="body">본문</label><button class="button subtle" id="preview-toggle" type="button" aria-pressed="false" aria-controls="body-preview">미리보기</button><strong id="char-count"></strong></div>
+              <progress id="length-progress" value="0" max="4000" aria-label="본문 목표 4,000자 진행도"></progress>
+              <div class="editor-tools" id="editor-tools">
+                <label for="editor-section" class="sr-only">추가할 소제목</label><select id="editor-section"><option>핵심 내용 한눈에 보기</option><option>직접 확인한 내용</option><option>구체적인 사례</option><option>비교할 때 살펴볼 점</option><option>자주 묻는 질문</option><option>마지막으로 확인할 점</option></select>
+                <button class="button subtle" type="button" id="insert-section">소제목 삽입</button>
+              </div>
+              <textarea id="body" rows="16" maxlength="30000" placeholder="글 본문" aria-describedby="length-detail"></textarea>
+              <div id="body-preview" class="body-preview" hidden></div>
+              <small id="length-detail"></small>
+            </div>
+            <label>태그<input id="tags" maxlength="500" placeholder="#검색키워드"></label>
+            <details class="editor-extra">
+              <summary><svg><use href="#spark"/></svg> 사진 이미지 프롬프트</summary>
+              <div class="extra-content">
+                <p>글 주제와 키워드로 만든 이미지 지시문입니다. 편집 후 이미지 생성 도구에 붙여넣으세요.</p>
+                <label>이미지 용도<select id="image-slot"><option value="cover">대표 이미지</option><option value="detail">본문 상세 이미지</option><option value="summary">마무리 요약 이미지</option></select></label>
+                <label>프롬프트<textarea id="image-prompt" rows="5" maxlength="3000"></textarea></label>
+                <div class="actions"><button class="button subtle" type="button" id="copy-image"><svg><use href="#copy"/></svg> 프롬프트 복사</button><button class="button subtle" type="button" id="reset-image">자동 생성 문구 적용</button></div>
+              </div>
+            </details>
+            <details class="editor-extra">
+              <summary><svg><use href="#logo"/></svg> 세움부동산 이미지와 방문 안내</summary>
+              <div class="extra-content">
+                <img id="brand-image" class="office-image" src="./seum-office.svg" alt="세움부동산 브랜드 배너">
+                <div class="field-row">
+                  <label>도로명주소<input id="office-address" maxlength="180" autocomplete="off"></label>
+                  <label>대표 전화<input id="office-phone" type="tel" maxlength="35" autocomplete="off"></label>
+                </div>
+                <div class="field-row">
+                  <label>이메일<input id="office-email" type="email" maxlength="120" autocomplete="off"></label>
+                  <label>네이버지도 매장 링크<input id="office-map" type="url" maxlength="500" placeholder="선택 · 네이버지도 공유 링크"></label>
+                </div>
+                <label>찾아오는 길<textarea id="office-directions" rows="2" maxlength="400" placeholder="선택 · 가까운 교차로, 건물 입구, 주차 정보 등"></textarea></label>
+                <p id="office-hint">지도 링크를 비워 두면 도로명주소로 네이버지도를 엽니다.</p>
+                <div class="actions"><button class="button subtle" type="button" id="download-brand"><svg><use href="#file"/></svg> 브랜드 이미지 PNG</button><a class="button subtle" id="open-map" target="_blank" rel="noopener">네이버지도 약도 <svg><use href="#external"/></svg></a><button class="button subtle" type="button" id="insert-office">본문 끝에 방문 안내 추가</button></div>
+              </div>
+            </details>
+            <div class="form-footer"><button class="button subtle" type="button" id="download"><svg><use href="#file"/></svg> 텍스트 저장</button><button class="button primary" type="button" data-go="3">발행 준비 <svg><use href="#arrow"/></svg></button></div>
+          </section>
+          <section data-panel="3" class="panel" hidden>
+            <div class="section-heading"><div><p class="kicker">STEP 03</p><h2>네이버 발행 준비</h2><p>편집한 글을 복사하고 네이버 스마트에디터에서 발행하세요.</p></div></div>
+            <div class="publish-box"><strong id="publish-title"></strong><p id="publish-excerpt"></p><div class="actions"><button class="button subtle" data-copy="title" type="button"><svg><use href="#copy"/></svg> 제목 복사</button><button class="button subtle" data-copy="body" type="button"><svg><use href="#copy"/></svg> 본문 복사</button><button class="button subtle" data-copy="tags" type="button"><svg><use href="#copy"/></svg> 태그 복사</button></div></div>
+            <ol class="publish-steps"><li>내 블로그의 글쓰기에서 제목과 본문을 각각 붙여넣으세요.</li><li>직접 찍은 사진이나 자료를 추가하고, 태그와 카테고리를 확인하세요.</li><li>검색 노출을 원하면 <b>전체 공개</b>와 <b>검색 허용</b>을 확인한 뒤 즉시 또는 예약 발행을 선택하세요.</li></ol>
+            <p class="fineprint">네이버 글쓰기 API 종료로 최종 발행은 네이버에서 진행합니다. <a href="https://help.naver.com/service/5593/contents/15428?lang=ko&osType=PC" target="_blank" rel="noopener">예약 발행 도움말 ↗</a></p>
+            <div class="form-footer"><button class="button subtle" type="button" data-go="2">초안 편집</button><a class="button primary" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">네이버 글쓰기 열기 <svg><use href="#external"/></svg></a></div>
+          </section>
+        </section>
+        <aside class="rail">
+          <section class="card quality">
+            <div class="rail-heading"><span class="feature-icon"><svg><use href="#target"/></svg></span><div><h2>검색 품질 점검</h2><p>발행 전 콘텐츠 체크리스트</p></div></div>
+            <div class="meter-heading"><span>점검 진행도</span><b id="progress-text">0 / 6</b></div>
+            <progress id="progress" value="0" max="6" aria-label="점검 진행도"></progress>
+            <ul class="checks" id="checks"></ul>
+            <p class="quality-note">네이버 공개 가이드를 참고한 자체 점검입니다. 실제 검색 순위는 달라질 수 있습니다.</p>
+          </section>
+          <a class="tip card" href="#guide"><span class="feature-icon"><svg><use href="#book"/></svg></span><span><strong>네이버 검색 노출 가이드</strong><small>C-Rank · D.I.A. 핵심 기준 살펴보기</small></span><svg class="tip-arrow"><use href="#arrow"/></svg></a>
+        </aside>
+      </div>
+    </section>
+    <section id="view-drafts" hidden>
+      <div class="page-heading"><p class="kicker">DRAFT LIBRARY</p><h1>초안 보관함</h1><p>이 브라우저에 보관한 글을 이어서 작성하세요.</p></div>
+      <div class="card library"><div class="section-heading"><h2>내 초안</h2><button type="button" id="new-draft" class="button primary"><svg><use href="#pen"/></svg> 새 글 시작</button></div><div id="draft-list"></div></div>
+    </section>
+    <section id="view-guide" hidden>
+      <div class="page-heading"><p class="kicker">NAVER SEARCH GUIDE</p><h1>검색 노출 가이드</h1><p>네이버가 공개한 기준을 글 작성과 발행 과정에 적용해 보세요.</p></div>
+      <div class="guide-grid">
+        <article class="card guide"><span class="feature-icon"><svg><use href="#target"/></svg></span><h2>문서의 경험과 정보성</h2><p>D.I.A.는 검색어와 글의 관련성, 독창성, 경험과 정보의 충실성 등을 반영합니다. 독자의 질문에 구체적으로 답하고 직접 확인한 조건과 출처를 적어보세요.</p><a href="https://help.naver.com/service/5626/contents/22926?osType=COMMONOS" target="_blank" rel="noopener">D.I.A. 공식 안내 ↗</a></article>
+        <article class="card guide"><span class="feature-icon"><svg><use href="#book"/></svg></span><h2>블로그 주제와 신뢰도</h2><p>C-Rank는 글이 나온 출처를 평가합니다. 하나의 분야를 꾸준히 다루고, 제목이 약속한 내용을 본문에서 충분히 설명하세요.</p><a href="https://help.naver.com/service/5626/contents/22927?lang=ko" target="_blank" rel="noopener">C-Rank 공식 안내 ↗</a></article>
+        <article class="card guide"><span class="feature-icon"><svg><use href="#check"/></svg></span><h2>공개 및 검색 허용</h2><p>검색 노출이 필요한 글은 전체 공개로 두고 검색 허용을 켜세요. 제목과 태그는 본문 내용에 맞게 설정하세요.</p><a href="https://help.naver.com/service/5593/contents/15555?lang=ko" target="_blank" rel="noopener">검색 노출 설정 안내 ↗</a></article>
+        <article class="card guide"><span class="feature-icon"><svg><use href="#file"/></svg></span><h2>스마트에디터 발행</h2><p>네이버는 외부 글쓰기 API를 종료했습니다. 이 사이트에서 초안을 만든 뒤 스마트에디터에 붙여넣고, 네이버에서 즉시 또는 예약 발행할 수 있습니다.</p><a href="https://developers.naver.com/notice/article/7527" target="_blank" rel="noopener">글쓰기 API 종료 공지 ↗</a></article>
+      </div>
+    </section>
+    <footer><span>SEUM STUDIO</span><span>네이버 공식 서비스와 독립적으로 운영되는 글쓰기 도구</span></footer>
+  </main>
+</div>
+<div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>
