@@ -6,6 +6,9 @@
   <meta name="description" content="네이버 블로그 초안 작성부터 품질 점검, 발행 준비까지 한곳에서.">
   <title>세움 블로그 스튜디오</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./card-news.css">
+  <script src="./card-news-zip.js" defer></script>
+  <script src="./card-news.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
@@ -25,7 +28,9 @@
 </svg>
 <header class="topbar">
   <a class="brand" href="#write"><span class="brand-icon"><svg><use href="#logo"/></svg></span><span>세움 <small>블로그 스튜디오</small></span></a>
-  <span class="top-label">콘텐츠 워크스페이스</span>
+  <nav class="top-menu" aria-label="상단 메뉴">
+    <a href="#card-news" data-nav="card-news"><svg aria-hidden="true"><use href="#file"/></svg> 카드뉴스 생성기</a>
+  </nav>
   <div class="top-end"><span class="naver-tag"><b>N</b> 네이버 블로그</span><span class="avatar" aria-label="내 작업공간">S</span></div>
 </header>
 <div class="layout">
@@ -140,14 +145,14 @@
                 <div class="actions"><button class="button subtle" type="button" id="download-brand"><svg><use href="#file"/></svg> 브랜드 이미지 PNG</button><a class="button subtle" id="open-map" target="_blank" rel="noopener">네이버지도 약도 <svg><use href="#external"/></svg></a><button class="button subtle" type="button" id="insert-office">본문 끝에 방문 안내 추가</button></div>
               </div>
             </details>
-            <div class="form-footer"><button class="button subtle" type="button" id="download"><svg><use href="#file"/></svg> 텍스트 저장</button><button class="button primary" type="button" data-go="3">발행 준비 <svg><use href="#arrow"/></svg></button></div>
+            <div class="form-footer"><button class="button subtle" type="button" id="download"><svg><use href="#file"/></svg> 텍스트 저장</button><button class="button subtle" type="button" data-make-instagram><svg aria-hidden="true"><use href="#spark"/></svg> 인스타그램 카드뉴스 만들기</button><button class="button primary" type="button" data-go="3">발행 준비 <svg><use href="#arrow"/></svg></button></div>
           </section>
           <section data-panel="3" class="panel" hidden>
             <div class="section-heading"><div><p class="kicker">STEP 03</p><h2>네이버 발행 준비</h2><p>편집한 글을 복사하고 네이버 스마트에디터에서 발행하세요.</p></div></div>
             <div class="publish-box"><strong id="publish-title"></strong><p id="publish-excerpt"></p><div class="actions"><button class="button subtle" data-copy="title" type="button"><svg><use href="#copy"/></svg> 제목 복사</button><button class="button subtle" data-copy="body" type="button"><svg><use href="#copy"/></svg> 본문 복사</button><button class="button subtle" data-copy="tags" type="button"><svg><use href="#copy"/></svg> 태그 복사</button></div></div>
             <ol class="publish-steps"><li>내 블로그의 글쓰기에서 제목과 본문을 각각 붙여넣으세요.</li><li>직접 찍은 사진이나 자료를 추가하고, 태그와 카테고리를 확인하세요.</li><li>검색 노출을 원하면 <b>전체 공개</b>와 <b>검색 허용</b>을 확인한 뒤 즉시 또는 예약 발행을 선택하세요.</li></ol>
             <p class="fineprint">네이버 글쓰기 API 종료로 최종 발행은 네이버에서 진행합니다. <a href="https://help.naver.com/service/5593/contents/15428?lang=ko&osType=PC" target="_blank" rel="noopener">예약 발행 도움말 ↗</a></p>
-            <div class="form-footer"><button class="button subtle" type="button" data-go="2">초안 편집</button><a class="button primary" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">네이버 글쓰기 열기 <svg><use href="#external"/></svg></a></div>
+            <div class="form-footer"><button class="button subtle" type="button" data-go="2">초안 편집</button><button class="button subtle" type="button" data-make-instagram><svg aria-hidden="true"><use href="#spark"/></svg> 인스타그램 카드뉴스 만들기</button><a class="button primary" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">네이버 글쓰기 열기 <svg><use href="#external"/></svg></a></div>
           </section>
         </section>
         <aside class="rail">
@@ -165,6 +170,65 @@
     <section id="view-drafts" hidden>
       <div class="page-heading"><p class="kicker">DRAFT LIBRARY</p><h1>초안 보관함</h1><p>이 브라우저에 보관한 글을 이어서 작성하세요.</p></div>
       <div class="card library"><div class="section-heading"><h2>내 초안</h2><button type="button" id="new-draft" class="button primary"><svg><use href="#pen"/></svg> 새 글 시작</button></div><div id="draft-list"></div></div>
+    </section>
+    <section id="view-card-news" hidden aria-labelledby="card-news-title">
+      <div class="page-heading">
+        <h1 id="card-news-title" tabindex="-1">카드뉴스 생성기</h1>
+        <p>블로그 원고로 인스타그램 카드뉴스와 게시글 문구를 함께 만드세요.</p>
+      </div>
+      <div class="card-news-grid">
+        <section class="card card-news-panel">
+          <div class="card-news-heading"><h2>원고 입력</h2><button class="button subtle" id="card-use-draft" type="button"><svg aria-hidden="true"><use href="#copy"/></svg> 초안 가져오기</button></div>
+          <form id="card-news-form">
+            <label for="card-title-input">표지 제목</label>
+            <input id="card-title-input" maxlength="150" required placeholder="예: 집을 보러 가기 전 확인할 세 가지">
+            <label for="card-body-input">본문 원고</label>
+            <textarea id="card-body-input" rows="8" maxlength="12000" required placeholder="카드에 넣을 글을 적어주세요. 문단은 빈 줄로 나눌 수 있습니다."></textarea>
+            <label for="card-blog-url">내 네이버 블로그 주소</label>
+            <input id="card-blog-url" maxlength="220" placeholder="blog.naver.com/내블로그아이디" aria-describedby="card-url-note" autocomplete="off">
+            <small id="card-url-note" class="card-news-note">이 브라우저에 저장되며 카드 하단과 인스타그램 문구에 들어갑니다.</small>
+            <p id="card-url-error" class="card-news-error" role="status" hidden></p>
+            <label for="card-theme">디자인</label>
+            <select id="card-theme">
+              <option value="forest">딥그린</option>
+              <option value="paper">크림</option>
+              <option value="ink">네이비</option>
+            </select>
+            <p id="card-error" class="card-news-error" role="alert" hidden></p>
+            <button class="button primary card-generate" type="submit"><svg aria-hidden="true"><use href="#spark"/></svg> 카드뉴스 만들기</button>
+          </form>
+        </section>
+        <section class="card card-news-panel">
+          <div class="card-news-heading"><h2>미리보기</h2><span class="card-format">1080 × 1350</span></div>
+          <div id="card-empty" class="card-news-empty">
+            <svg aria-hidden="true"><use href="#file"/></svg>
+            <p>카드뉴스를 만들면 여기에 표시됩니다.</p>
+          </div>
+          <div id="card-result" hidden>
+            <canvas id="card-canvas" width="1080" height="1350" role="img" aria-label="카드뉴스 미리보기"></canvas>
+            <div class="card-news-controls">
+              <button id="card-prev" class="button subtle" type="button">이전 장</button>
+              <span id="card-position" aria-live="polite"></span>
+              <button id="card-next" class="button subtle" type="button">다음 장</button>
+            </div>
+            <label for="card-text">현재 카드 문구</label>
+            <textarea id="card-text" rows="4" maxlength="500"></textarea>
+            <p id="card-fit-error" class="card-news-error" role="status" hidden></p>
+            <button id="card-save" class="button primary card-generate" type="button"><svg aria-hidden="true"><use href="#file"/></svg> 현재 카드 PNG 저장</button>
+          </div>
+        </section>
+      </div>
+      <section id="instagram-package" class="card card-news-panel instagram-package" hidden>
+        <div class="card-news-heading"><h2>인스타그램 게시글</h2><button id="instagram-rebuild" class="button subtle" type="button">현재 카드로 문구 다시 만들기</button></div>
+        <label for="instagram-caption">게시글 문구</label>
+        <textarea id="instagram-caption" rows="7" maxlength="2000" placeholder="인스타그램에 붙여넣을 문구"></textarea>
+        <p id="instagram-link-note" class="card-news-note"></p>
+        <div class="actions">
+          <button id="instagram-copy" class="button subtle" type="button"><svg aria-hidden="true"><use href="#copy"/></svg> 문구와 블로그 주소 복사</button>
+          <button id="instagram-zip" class="button primary" type="button"><svg aria-hidden="true"><use href="#file"/></svg> 블로그 원고·카드뉴스 한 번에 저장 (ZIP)</button>
+        </div>
+        <p id="instagram-export-status" class="card-news-note" role="status"></p>
+      </section>
     </section>
     <section id="view-guide" hidden>
       <div class="page-heading"><p class="kicker">NAVER SEARCH GUIDE</p><h1>검색 노출 가이드</h1><p>네이버가 공개한 기준을 글 작성과 발행 과정에 적용해 보세요.</p></div>

@@ -1,0 +1,33 @@
+.top-menu { align-self: center; }
+.top-menu a { min-height: 38px; gap: 7px; background: #f0f6f1; border: 1px solid var(--line); }
+.top-menu a:hover, .top-menu a[aria-current="page"] { background: var(--pale); border-color: #a9c6b6; }
+.top-menu svg { width: 16px; height: 16px; }
+.card-news-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.card-news-panel { padding: 20px; }
+.card-news-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 9px; margin-bottom: 14px; }
+.card-news-heading h2 { font-size: 18px; }
+.card-news-panel label { margin: 13px 0 0; }
+.card-generate { width: 100%; margin-top: 14px; min-height: 40px; }
+.card-format { color: var(--muted); background: #f1f6f1; border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; font-size: 11px; font-variant-numeric: tabular-nums; }
+.card-news-empty { display: grid; align-content: center; justify-items: center; gap: 8px; min-height: 290px; border-radius: 12px; border: 1px dashed #c3d7cb; background: #f7faf7; color: var(--muted); font-size: 13px; text-align: center; padding: 15px; }
+.card-news-empty svg { width: 35px; height: 35px; color: var(--green); }
+#card-canvas { width: 100%; max-width: 410px; height: auto; aspect-ratio: 4 / 5; display: block; margin: auto; border-radius: 10px; box-shadow: 0 3px 14px #193e3020; }
+.card-news-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+#card-position { font-size: 12px; font-weight: 750; color: var(--muted); }
+.card-news-error { margin-top: 7px; color: #963d33; font-size: 12px; }
+.card-news-note { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.instagram-package { margin-top: 18px; }
+.instagram-package .actions { margin-top: 11px; }
+.instagram-package .actions button { white-space: normal; text-align: left; }
+@media (max-width: 780px) {
+  .card-news-grid { grid-template-columns: 1fr; gap: 12px; }
+  .card-news-panel { padding: 15px; }
+}
+@media (max-width: 540px) {
+  .topbar { gap: 8px; }
+  .top-menu { margin-left: auto; }
+  .topbar .top-end { display: none; }
+  .top-menu a { padding-inline: 8px; font-size: 12px; }
+  .topbar .brand { gap: 7px; }
+  .topbar .brand small { font-size: 11px; }
+}

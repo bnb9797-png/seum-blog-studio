@@ -169,6 +169,7 @@ function refresh() {
   $("save").disabled = !publishable;
   $("download").disabled = !state.body.trim();
   document.querySelector('[data-go="3"]').disabled = !publishable;
+  for (const button of all("[data-make-instagram]")) button.disabled = !publishable;
   for (const button of all("[data-copy]")) button.disabled = !state[button.dataset.copy].trim();
 }
 
@@ -506,7 +507,7 @@ function downloadFile(file, name) {
 }
 
 function route() {
-  const view = ["drafts", "guide"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "write";
+  const view = ["drafts", "guide", "card-news"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "write";
   for (const section of all("main > section")) section.hidden = section.id !== "view-" + view;
   for (const link of all("[data-nav]")) {
     if (link.dataset.nav === view) link.setAttribute("aria-current", "page");
@@ -517,5 +518,18 @@ function route() {
 
 buildChecks();
 renderFields();
+const cardNews = setupCardNews({
+  getDraft: () => ({ title: state.title || state.topic, body: state.body || state.notes, tags: state.tags }),
+  downloadFile,
+  toast,
+});
+for (const button of all("[data-make-instagram]")) {
+  button.addEventListener("click", () => {
+    if (cardNews?.fromDraft()) location.hash = "card-news";
+  });
+}
 route();
-window.addEventListener("hashchange", route);
+window.addEventListener("hashchange", () => {
+  route();
+  if (location.hash === "#card-news") $("card-news-title").focus();
+});
